@@ -1,0 +1,10 @@
+:root {
+  --bg-dark: #111827;
+  --white: #f3f4f6;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--white);
+  font-family: 'Urbanist', sans-serif;
+}
