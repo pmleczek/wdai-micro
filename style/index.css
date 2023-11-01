@@ -1,5 +1,7 @@
 :root {
   --bg-dark: #111827;
+  --bg-dark-light: #1f2937;
+  --primary: #2563eb;
   --white: #f3f4f6;
 }
 
@@ -7,4 +9,34 @@ body {
   background-color: var(--bg-dark);
   color: var(--white);
   font-family: 'Urbanist', sans-serif;
+}
+
+.nav-link.active {
+  background-color: var(--bg-dark-light);
+  transition-property: background-color;
+  transition-duration: 175ms;
+}
+
+@media (min-width: 768px) {
+  .nav-link.active {
+    background-color: transparent;
+    position: relative;
+  }
+
+  .nav-link.active:hover {
+    opacity: 1 !important;
+  }
+
+  .nav-link.active::after {
+    position: absolute;
+    top: 1.5rem;
+    left: calc(50% - 5px);
+    content: '';
+    display: block;
+    height: 3px;
+    width: 10px;
+    background-color: var(--white);
+    border-radius: 1rem;
+    background-color: var(--primary);
+  }
 }

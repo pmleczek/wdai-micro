@@ -5,13 +5,33 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,400;0,600;0,700;0,800;0,900;1,500&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@400;500;600;700;800;900&display=swap');
     </style>
+    <link rel="stylesheet" href="style/reset.css" />
     <link rel="stylesheet" href="style/index.css" />
-    <title>Title</title>
+    <link rel="stylesheet" href="style/utilities.css" />
+    <title>Blog</title>
   </head>
   <body>
-    <div id="app">Test</div>
+    <div>
+      <header>
+        <div class="border-b border-b-dark-light md:border-b-0">
+          <div
+            id="navbar"
+            class="py-4 md:py-5 px-6 flex items-center justify-between flex-wrap container mx-auto"
+          >
+            <a id="logo-link">Blog</a>
+            <nav
+              id="nav-links"
+              class="flex flex-col md:flex-row basis-full md:basis-auto md:gap-8 order-3 md:order-2 none md:flex pt-4 md:p-0"
+            ></nav>
+            <button id="navbar-toggler" class="md:none"></button>
+          </div>
+        </div>
+      </header>
+
+      <div id="router-outlet"></div>
+    </div>
     <script type="module" src="/src/index.ts"></script>
   </body>
 </html>
