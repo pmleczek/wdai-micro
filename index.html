@@ -20,7 +20,6 @@
             id="navbar"
             class="py-4 md:py-5 px-6 flex items-center justify-between flex-wrap container mx-auto"
           >
-            <a id="logo-link">Blog</a>
             <nav
               id="nav-links"
               class="flex flex-col md:flex-row basis-full md:basis-auto md:gap-8 order-3 md:order-2 none md:flex pt-4 md:p-0"
@@ -28,9 +27,11 @@
             <button id="navbar-toggler" class="md:none"></button>
           </div>
         </div>
+
+        <div id="header-outlet"></div>
       </header>
 
-      <div id="router-outlet"></div>
+      <main id="router-outlet"></main>
     </div>
     <script type="module" src="/src/index.ts"></script>
   </body>

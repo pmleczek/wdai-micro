@@ -1,10 +1,13 @@
 import { setupRouter } from './router';
 
+import Home from './pages/Home';
+import Settings from './pages/Settings';
+
 setupRouter([
   {
     label: 'Home',
     pathname: '/',
-    component: '<h1>Home</h1>',
+    component: Home,
     title: 'Blog',
   },
   {
@@ -13,9 +16,14 @@ setupRouter([
     component: '<h1>Posts</h1>',
   },
   {
-    label: 'Test',
-    pathname: '/test',
-    component: '<h1>Test</h1>',
+    label: 'Tags',
+    pathname: '/tags',
+    component: '<h1>tags</h1>',
+  },
+  {
+    label: 'Settings',
+    pathname: '/settings',
+    component: Settings,
   },
   {
     label: 'New post',

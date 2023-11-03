@@ -1,15 +1,31 @@
-import { NavLink } from '../components';
+import { LogoLink, NavLink } from '../components';
 import { CloseIcon, MenuIcon } from '../components/icons';
-import { Route } from './types';
+import { Page, Route } from './types';
 
 const navLinks = document.querySelector('#nav-links');
 const navbar = document.querySelector('#navbar');
 const navbarToggler = document.querySelector('#navbar-toggler');
-const routerOutlet = document.querySelector('#router-outlet');
 const title = document.querySelector('title');
 
+const headerOutlet = document.querySelector('#header-outlet');
+const mainOutlet = document.querySelector('#router-outlet');
+
+const renderPage = (page: Page) => {
+  if (mainOutlet) {
+    mainOutlet.replaceChildren(page.main);
+  }
+
+  if (headerOutlet) {
+    if (page.header) {
+      headerOutlet.replaceChildren(page.header);
+    } else {
+      headerOutlet.replaceChildren('');
+    }
+  }
+};
+
 const onNavigate = (routes: Route[]) => {
-  if (routerOutlet) {
+  if (mainOutlet) {
     const route = routes.find(
       (route) => route.pathname === window.location.pathname,
     );
@@ -18,7 +34,11 @@ const onNavigate = (routes: Route[]) => {
       return;
     }
 
-    routerOutlet.innerHTML = route.component;
+    if (typeof route.component === 'string') {
+      mainOutlet.innerHTML = route.component;
+    } else {
+      renderPage(route.component);
+    }
 
     if (title) {
       title.innerText = route.title ?? route.label;
@@ -68,6 +88,8 @@ export const setupRouter = (routes: Route[]) => {
   }
 
   if (navbar) {
+    navbar.prepend(LogoLink());
+
     navbar.appendChild(
       NavLink(
         '/new',
