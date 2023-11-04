@@ -7,8 +7,6 @@ const onChange = (event: Event) => {
 
   const postsList = document.querySelector('#posts-list');
 
-  console.log(posts);
-
   if (postsList) {
     postsList.innerHTML = '';
 
@@ -39,14 +37,27 @@ const Header = () => {
 };
 
 const Main = () => {
-  const container = document.createElement('div');
-  container.className = 'container mx-auto px-6 pt-4';
-
   const posts = getPosts('');
+
+  if (!posts.length) {
+    const emptyContainer = document.createElement('div');
+    emptyContainer.className = 'flex-1 flex items-center justify-center';
+
+    const content = document.createElement('span');
+    content.innerText =
+      'No posts found :( \n There are no posts or you used incorrect search query';
+    content.className = 'font-medium text-6 text-grey text-center';
+    emptyContainer.appendChild(content);
+
+    return emptyContainer;
+  }
+
+  const container = document.createElement('div');
+  container.className = 'container mx-auto px-6 pt-4 pb-6';
 
   const postsList = document.createElement('div');
   postsList.setAttribute('id', 'posts-list');
-  postsList.className = 'flex flex-col gap-4'
+  postsList.className = 'flex flex-col gap-4';
 
   posts.forEach((post) => postsList.appendChild(PostRow(post)));
 

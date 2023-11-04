@@ -23,6 +23,7 @@ const onChange = async (event: Event) => {
       'pointer',
       'hover:opacity',
     );
+    resetButton.removeAttribute('disabled');
   }
 };
 
@@ -40,6 +41,7 @@ const onReset = () => {
       'pointer',
       'hover:opacity',
     );
+    resetButton.setAttribute('disabled', 'true');
   }
 
   const preview = document.querySelector(
@@ -78,6 +80,7 @@ const FileInput = (id: string) => {
 
   const button = document.createElement('button');
   button.innerText = 'Choose file';
+  button.setAttribute('type', 'button');
   button.className =
     'px-4 py-2 rounded-2 text-3.5 border pointer font-medium hover:opacity';
   button.addEventListener('click', () => input.click());
@@ -87,7 +90,8 @@ const FileInput = (id: string) => {
   const resetButton = document.createElement('button');
   resetButton.setAttribute('id', 'reset-button');
   resetButton.innerText = 'Reset';
-  resetButton.setAttribute('disable', 'true');
+  resetButton.setAttribute('disabled', 'true');
+  resetButton.setAttribute('type', 'button');
   resetButton.className =
     'border rounded-2 px-4 py-2 text-3.5 font-medium border-grey text-grey';
   resetButton.addEventListener('click', onReset);

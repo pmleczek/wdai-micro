@@ -4,7 +4,7 @@ import { None } from './icons';
 
 const SmallCard = (post: Post) => {
   const container = document.createElement('div');
-  container.className = 'pointer hover:opacity';
+  container.className = 'pointer hover:opacity h-full flex flex-col';
   container.addEventListener('click', () => {
     navigate(`/post?id=${post.id}`);
   });
@@ -26,7 +26,7 @@ const SmallCard = (post: Post) => {
 
   const infoContainer = document.createElement('div');
   infoContainer.className =
-    'rounded-bottom-2 border border-dark-grey px-4 py-4 border-dark-light';
+    'rounded-bottom-2 border border-dark-grey px-4 py-4 border-dark-light flex-1';
 
   const date = document.createElement('p');
   date.innerText = new Date(
@@ -37,7 +37,7 @@ const SmallCard = (post: Post) => {
 
   const title = document.createElement('h3');
   title.innerText = post.title;
-  title.className = 'font-semibold pt-2 text-5';
+  title.className = 'font-semibold pt-2';
 
   infoContainer.appendChild(title);
 

@@ -1,4 +1,5 @@
-import { PostsLocation, toBase64, uuid } from './utils';
+import { faker } from '@faker-js/faker';
+import { PostsLocation, toBase64 } from './utils';
 import { Post, PostInput } from './types';
 
 export const getPosts = (query: string, latest?: number): Post[] => {
@@ -18,7 +19,9 @@ export const getPosts = (query: string, latest?: number): Post[] => {
   );
 
   if (latest) {
-    return filtered.slice(0, latest);
+    return filtered
+      .sort((a, b) => b.createdAt.valueOf() - a.createdAt.valueOf())
+      .slice(0, latest);
   }
 
   return filtered;
@@ -36,7 +39,7 @@ export const createPost = async (input: PostInput) => {
     : undefined;
 
   const newPost: Post = {
-    id: uuid(),
+    id: faker.string.uuid(),
     title: input.title,
     content: input.content,
     thumbnail,

@@ -3,7 +3,7 @@ import SmallCard from './SmallCard';
 
 const LatestPosts = () => {
   const container = document.createElement('div');
-  container.className = 'pt-4';
+  container.className = 'pt-4 pb-6';
 
   const header = document.createElement('h2');
   header.innerText = 'Latest posts';

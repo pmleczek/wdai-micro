@@ -1,3 +1,4 @@
+import Banner from '../components/Banner';
 import DataSection from '../components/Settings/DataSection';
 import { Page } from '../router/types';
 
@@ -7,7 +8,7 @@ const Header = () => {
 
   const header = document.createElement('h1');
   header.innerText = 'Settings';
-  header.className = 'text-6 font-semibold border-b border-b-dark-light py-4'
+  header.className = 'text-6 font-semibold border-b border-b-dark-light py-4';
   container.appendChild(header);
 
   return container;
@@ -19,6 +20,8 @@ const Main = () => {
 
   container.appendChild(DataSection());
 
+  container.appendChild(Banner());
+
   return container;
 };
 
@@ -27,4 +30,4 @@ const Settings: Page = {
   main: Main,
 };
 
-export default Settings
+export default Settings;

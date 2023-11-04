@@ -16,7 +16,7 @@ const PostRow = (post: Post) => {
   const container = document.createElement('div');
   container.addEventListener('click', () => navigate(`/post?id=${post.id}`));
   container.className =
-    'hover:opacity flex items-center justify-between pointer bg-dark-light rounded-2 w-full py-4 px-4 md:px-6';
+    'hover:opacity gap-4 flex items-center justify-between pointer bg-dark-light rounded-2 w-full py-4 px-4 md:px-6';
 
   const leftContainer = document.createElement('div');
   leftContainer.className = 'flex flex-1 items-center gap-4 md:gap-8';
@@ -37,11 +37,11 @@ const PostRow = (post: Post) => {
   }
 
   const textContainer = document.createElement('div');
-  textContainer.className = 'flex flex-1 flex-col gap-2';
+  textContainer.className = 'flex flex-1 flex-col gap-1';
 
   const title = document.createElement('h2');
   title.innerText = post.title;
-  title.className = 'text-5 font-semibold text-light-grey';
+  title.className = 'md:text-5 font-semibold text-light-grey';
   textContainer.appendChild(title);
 
   const contentPreview = document.createElement('p');

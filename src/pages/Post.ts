@@ -5,7 +5,7 @@ import { navigate } from '../router/utils';
 
 const Main = () => {
   const container = document.createElement('article');
-  container.className = 'container mx-auto px-6 pt-4';
+  container.className = 'container mx-auto px-6 pt-4 pb-6';
 
   const id = window.location.search.replace('?id=', '');
   const post = getPost(id);

@@ -1,3 +1,4 @@
+import Banner, { showBanner } from '../components/Banner';
 import {
   ErrorMessage,
   FileInput,
@@ -53,6 +54,8 @@ const onSubmit = async (event: SubmitEvent) => {
 
     navigate('/posts');
   } else {
+    showBanner('Form contains errors. Please revise.', 5000);
+
     if (!title) {
       titleInput.classList.add('border-negative');
       titleLabel?.classList.add('text-negative');
@@ -100,6 +103,8 @@ const Main = () => {
     'font-semibold bg-primary w-full py-3 text-center rounded-2 pointer hover:opacity mt-6';
   submitButton.innerText = 'Create';
   container.appendChild(submitButton);
+
+  container.appendChild(Banner());
 
   container.addEventListener('submit', onSubmit);
 

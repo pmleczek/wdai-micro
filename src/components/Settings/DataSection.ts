@@ -1,10 +1,14 @@
+import { faker } from '@faker-js/faker';
 import { PostsLocation } from '../../data/utils';
+import { createPost } from '../../data/posts';
+import { showBanner } from '../Banner';
 
 const SectionItem = (
   title: string,
   label: string,
   buttonLabel: string,
   onClick: () => void,
+  variant: 'negative' | 'primary' = 'negative',
 ) => {
   const container = document.createElement('div');
   container.className = 'px-4 py-4 flex items-center justify-between';
@@ -25,8 +29,11 @@ const SectionItem = (
 
   const button = document.createElement('button');
   button.innerText = buttonLabel;
-  button.className =
-    'font-medium px-4 py-2 rounded-2 border border-negative pointer hover:opacity text-3.5 text-negative';
+  button.className = `font-medium px-4 py-2 rounded-2 border ${
+    variant === 'negative'
+      ? 'border-negative text-negative'
+      : 'border-primary text-primary'
+  } pointer hover:opacity text-3.5`;
   button.addEventListener('click', onClick);
   container.appendChild(button);
 
@@ -35,6 +42,31 @@ const SectionItem = (
 
 const onEraseContent = () => {
   localStorage.removeItem(PostsLocation);
+  showBanner('Data erased successfully.', 5000);
+};
+
+const onGenerate = async () => {
+  for (let i = 0; i < 10; i++) {
+    const includeImage = faker.number.float() <= 0.75;
+    let image = undefined;
+
+    if (includeImage) {
+      const response = await fetch(
+        faker.image.urlLoremFlickr({ category: 'cats' }),
+      );
+      const blob = await response.blob();
+      const file = new File([blob], `${faker.string.uuid()}`);
+      image = file;
+    }
+
+    await createPost({
+      title: faker.lorem.words({ min: 3, max: 5 }),
+      content: faker.lorem.paragraphs({ min: 10, max: 20 }),
+      image,
+    });
+  }
+
+  showBanner('Posts created successfully.', 5000, 'primary');
 };
 
 const DataSection = () => {
@@ -52,6 +84,16 @@ const DataSection = () => {
       'This will permanently erase all content',
       'Erase',
       onEraseContent,
+    ),
+  );
+
+  container.appendChild(
+    SectionItem(
+      'Generate random posts',
+      'This will generate 10 random posts',
+      'Generate',
+      onGenerate,
+      'primary',
     ),
   );
 
