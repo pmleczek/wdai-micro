@@ -1,11 +1,16 @@
 const Banner = () => {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'container mx-auto px-6 fixed bottom-4 x-0';
+
   const container = document.createElement('div');
   container.setAttribute('id', 'banner');
   container.className =
-    'container flex items-center justify-between mx-auto px-6 py-4 bg-dark-light border none rounded-2 fixed bottom-4 x-0';
+    'flex items-center justify-between px-6 py-4 bg-dark-light border none rounded-2';
   container.innerText = 'Form contains errors. Please revise.';
 
-  return container;
+  wrapper.appendChild(container);
+
+  return wrapper;
 };
 
 export const showBanner = async (

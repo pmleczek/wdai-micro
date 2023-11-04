@@ -169,8 +169,8 @@
   height: 7.5rem;
 }
 
-.h-120 {
-  height: 28rem;
+.h-50 {
+  height: 12.5rem;
 }
 
 .h-full {
@@ -372,6 +372,10 @@
   .md\:text-5 {
     font-size: 1.25rem;
     line-height: 1.5rem;
+  }
+
+  .md\:h-100 {
+    height: 25rem;
   }
 
   .container {

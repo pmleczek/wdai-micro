@@ -18,7 +18,7 @@ const Main = () => {
   if (post.thumbnail) {
     const img = document.createElement('img');
     img.setAttribute('src', post.thumbnail);
-    img.className = 'w-full rounded-2 fit-cover object-center h-120';
+    img.className = 'w-full rounded-2 fit-cover object-center h-50 md:h-100';
 
     container.appendChild(img);
   } else {
