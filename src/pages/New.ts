@@ -52,7 +52,7 @@ const onSubmit = async (event: SubmitEvent) => {
       image,
     });
 
-    navigate('/posts');
+    navigate('/wdai-micro/posts');
   } else {
     showBanner('Form contains errors. Please revise.', 5000);
 
