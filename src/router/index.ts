@@ -24,7 +24,7 @@ const renderPage = (page: Page) => {
   }
 };
 
-const onNavigate = (routes: Route[], initial?: boolean) => {
+const onNavigate = (routes: Route[]) => {
   if (mainOutlet) {
     const route = routes.find(
       (route) => route.pathname === window.location.pathname,
@@ -111,5 +111,5 @@ export const setupRouter = (routes: Route[]) => {
 
   window.addEventListener('popstate', () => onNavigate(routes));
 
-  onNavigate(routes, true);
+  onNavigate(routes);
 };
