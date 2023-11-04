@@ -1,8 +1,10 @@
 import { setupRouter } from './router';
 
 import Home from './pages/Home';
+import Posts from './pages/Posts';
 import Settings from './pages/Settings';
 import New from './pages/New';
+import Post from './pages/Post';
 
 setupRouter([
   {
@@ -11,11 +13,11 @@ setupRouter([
     component: Home,
     title: 'Blog',
   },
-  // {
-  //   label: 'Posts',
-  //   pathname: '/posts',
-  //   component: '<h1>Posts</h1>',
-  // },
+  {
+    label: 'Posts',
+    pathname: '/posts',
+    component: Posts,
+  },
   {
     label: 'Settings',
     pathname: '/settings',
@@ -26,5 +28,11 @@ setupRouter([
     pathname: '/new',
     component: New,
     className: 'md:none',
+  },
+  {
+    label: 'Post',
+    pathname: '/post',
+    component: Post,
+    className: 'none',
   },
 ]);

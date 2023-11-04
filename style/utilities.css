@@ -123,9 +123,18 @@
   font-weight: 600;
 }
 
+/* Grid */
+.space-rows-4 {
+  row-gap: 1rem;
+}
+
 /* Height */
 .h-30 {
   height: 7.5rem;
+}
+
+.h-120 {
+  height: 28rem;
 }
 
 /* Margin */

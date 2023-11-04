@@ -1,6 +1,7 @@
 import { FileInput, Input, Label, TextArea } from '../components/form';
 import { createPost } from '../data/posts';
 import { Page } from '../router/types';
+import { navigate } from '../router/utils';
 
 const onSubmit = async (event: SubmitEvent) => {
   event.preventDefault();
@@ -25,9 +26,7 @@ const onSubmit = async (event: SubmitEvent) => {
       image,
     });
 
-    window.history.pushState({}, '', '/posts');
-    const navigationEvent = new PopStateEvent('navigate');
-    window.dispatchEvent(navigationEvent);
+    navigate('/posts');
   }
 };
 

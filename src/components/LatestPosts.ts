@@ -11,7 +11,7 @@ const LatestPosts = () => {
   container.appendChild(header);
 
   const postsContainer = document.createElement('div');
-  postsContainer.className = 'grid md:cols-5 md:space-cols-4';
+  postsContainer.className = 'grid space-rows-4 md:space-cols-4';
   container.appendChild(postsContainer);
 
   const posts = getPosts(5);
@@ -19,14 +19,14 @@ const LatestPosts = () => {
   if (!posts.length) {
     const emptyLabel = document.createElement('span');
     emptyLabel.innerText = 'No posts were published yet';
-    emptyLabel.className = 'text-3.5 font-semibold py-4 text-grey';
+    emptyLabel.className = 'text-3.5 font-semibold py-4 text-grey w-full text-center block';
 
-    postsContainer.classList.add('justify-center');
     postsContainer.appendChild(emptyLabel);
 
     return container;
   }
 
+  postsContainer.classList.add('md:cols-5');
   posts.forEach((post) => postsContainer.appendChild(SmallCard(post)));
 
   return container;

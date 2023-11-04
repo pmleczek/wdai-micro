@@ -17,6 +17,10 @@ export const getPosts = (latest?: number): Post[] => {
   return array;
 };
 
+export const getPost = (id: string): Post | undefined => {
+  return getPosts().find((post) => post.id === id);
+};
+
 export const createPost = async (input: PostInput) => {
   const posts = getPosts();
 
@@ -27,7 +31,7 @@ export const createPost = async (input: PostInput) => {
   const newPost: Post = {
     id: uuid(),
     title: input.title,
-    content: input.title,
+    content: input.content,
     thumbnail,
     createdAt: new Date(),
     tags: input.tags ?? [],

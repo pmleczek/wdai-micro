@@ -106,5 +106,7 @@ export const setupRouter = (routes: Route[]) => {
 
   window.addEventListener('navigate', () => onNavigate(routes));
 
+  window.addEventListener('popstate', () => onNavigate(routes));
+
   onNavigate(routes);
 };

@@ -1,8 +1,12 @@
 import { Post } from '../data/types';
+import { navigate } from '../router/utils';
 
 const SmallCard = (post: Post) => {
   const container = document.createElement('div');
   container.className = 'pointer hover:opacity';
+  container.addEventListener('click', () => {
+    navigate(`/post?id=${post.id}`);
+  });
 
   if (post.thumbnail) {
     const img = document.createElement('img');
