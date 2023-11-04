@@ -2,6 +2,7 @@ import { setupRouter } from './router';
 
 import Home from './pages/Home';
 import Settings from './pages/Settings';
+import New from './pages/New';
 
 setupRouter([
   {
@@ -16,11 +17,6 @@ setupRouter([
     component: '<h1>Posts</h1>',
   },
   {
-    label: 'Tags',
-    pathname: '/tags',
-    component: '<h1>tags</h1>',
-  },
-  {
     label: 'Settings',
     pathname: '/settings',
     component: Settings,
@@ -28,7 +24,7 @@ setupRouter([
   {
     label: 'New post',
     pathname: '/new',
-    component: '<h1>New</h1>',
+    component: New,
     className: 'md:none',
   },
 ]);
