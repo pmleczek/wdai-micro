@@ -2,6 +2,7 @@ import { Post } from '../data/types';
 
 const SmallCard = (post: Post) => {
   const container = document.createElement('div');
+  container.className = 'pointer hover:opacity';
 
   if (post.thumbnail) {
     const img = document.createElement('img');

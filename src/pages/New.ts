@@ -69,8 +69,8 @@ const Main = () => {
 };
 
 const New: Page = {
-  header: Header(),
-  main: Main(),
+  header: Header,
+  main: Main,
 };
 
 export default New;

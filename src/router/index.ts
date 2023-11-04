@@ -12,12 +12,12 @@ const mainOutlet = document.querySelector('#router-outlet');
 
 const renderPage = (page: Page) => {
   if (mainOutlet) {
-    mainOutlet.replaceChildren(page.main);
+    mainOutlet.replaceChildren(page.main());
   }
 
   if (headerOutlet) {
     if (page.header) {
-      headerOutlet.replaceChildren(page.header);
+      headerOutlet.replaceChildren(page.header());
     } else {
       headerOutlet.replaceChildren('');
     }

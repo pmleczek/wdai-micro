@@ -23,8 +23,8 @@ const Main = () => {
 };
 
 const Settings: Page = {
-  header: Header(),
-  main: Main(),
+  header: Header,
+  main: Main,
 };
 
 export default Settings

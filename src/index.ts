@@ -11,11 +11,11 @@ setupRouter([
     component: Home,
     title: 'Blog',
   },
-  {
-    label: 'Posts',
-    pathname: '/posts',
-    component: '<h1>Posts</h1>',
-  },
+  // {
+  //   label: 'Posts',
+  //   pathname: '/posts',
+  //   component: '<h1>Posts</h1>',
+  // },
   {
     label: 'Settings',
     pathname: '/settings',

@@ -11,3 +11,12 @@ export const toBase64 = async (file: File) => {
     reader.readAsDataURL(file);
   });
 };
+
+export const uuid = () => {
+  const timestamp = new Date().getTime().toString(16);
+  const randomPart = 'xxxxxxxx'.replace(/[x]/g, function () {
+    return ((Math.random() * 16) | 0).toString(16);
+  });
+
+  return `${timestamp}-${randomPart}`;
+};

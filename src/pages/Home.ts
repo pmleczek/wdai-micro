@@ -12,7 +12,7 @@ const Main = () => {
 };
 
 const Home: Page = {
-  main: Main(),
+  main: Main,
 };
 
 export default Home;

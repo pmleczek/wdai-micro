@@ -1,12 +1,12 @@
 export interface Route {
   label: string;
   title?: string;
-  component: Page | string;
+  component: Page;
   pathname: string;
   className?: string;
 }
 
 export interface Page {
-  header?: Element;
-  main: Element;
+  header?: () => Element;
+  main: () => Element;
 }

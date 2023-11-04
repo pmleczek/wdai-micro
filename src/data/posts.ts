@@ -1,4 +1,4 @@
-import { PostsLocation, toBase64 } from './utils';
+import { PostsLocation, toBase64, uuid } from './utils';
 import { Post, PostInput } from './types';
 
 export const getPosts = (latest?: number): Post[] => {
@@ -25,6 +25,7 @@ export const createPost = async (input: PostInput) => {
     : undefined;
 
   const newPost: Post = {
+    id: uuid(),
     title: input.title,
     content: input.title,
     thumbnail,
