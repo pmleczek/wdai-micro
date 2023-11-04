@@ -1,4 +1,10 @@
-import { FileInput, Input, Label, TextArea } from '../components/form';
+import {
+  ErrorMessage,
+  FileInput,
+  Input,
+  Label,
+  TextArea,
+} from '../components/form';
 import { createPost } from '../data/posts';
 import { Page } from '../router/types';
 import { navigate } from '../router/utils';
@@ -6,13 +12,32 @@ import { navigate } from '../router/utils';
 const onSubmit = async (event: SubmitEvent) => {
   event.preventDefault();
 
-  const titleInput = document.querySelector('#new-post-title');
-  const title = (titleInput as HTMLInputElement).value ?? '';
+  const titleLabel = document.querySelector('#label-new-post-title');
+  const contentLabel = document.querySelector('#label-new-post-content');
+
+  const titleError = document.querySelector(
+    '#new-title-error',
+  ) as HTMLSpanElement;
+  const contentError = document.querySelector(
+    '#new-content-error',
+  ) as HTMLSpanElement;
+
+  titleError.innerText = '';
+  contentError.innerText = '';
+
+  const titleInput = document.querySelector(
+    '#new-post-title',
+  ) as HTMLInputElement;
+  titleInput.classList.remove('border-negative', 'text-negative');
+  titleLabel?.classList.remove('text-negative');
+  const title = titleInput.value.trim() ?? '';
 
   const contentInput = document.querySelector(
     '#new-post-content',
   ) as HTMLInputElement;
-  const content = contentInput.value ?? '';
+  contentInput.classList.remove('border-negative', 'text-negative');
+  contentLabel?.classList.remove('text-negative');
+  const content = contentInput.value.trim() ?? '';
 
   const fileInput = document.querySelector(
     '#new-post-thumbnail',
@@ -27,6 +52,18 @@ const onSubmit = async (event: SubmitEvent) => {
     });
 
     navigate('/posts');
+  } else {
+    if (!title) {
+      titleInput.classList.add('border-negative');
+      titleLabel?.classList.add('text-negative');
+      titleError.innerText = 'Please provide a valid title';
+    }
+
+    if (!content) {
+      contentInput.classList.add('border-negative');
+      contentLabel?.classList.add('text-negative');
+      contentError.innerText = 'Please provide valid content';
+    }
   }
 };
 
@@ -48,9 +85,11 @@ const Main = () => {
 
   container.appendChild(Label('new-post-title', 'Title'));
   container.appendChild(Input('new-post-title', 'Title'));
+  container.appendChild(ErrorMessage('new-title-error'));
 
   container.appendChild(Label('new-post-content', 'Content'));
   container.appendChild(TextArea('new-post-content', 'Post content'));
+  container.appendChild(ErrorMessage('new-content-error'));
 
   container.appendChild(Label('new-post-thumbnail', 'Thumbnail'));
   container.appendChild(FileInput('new-post-thumbnail'));
