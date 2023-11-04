@@ -44,7 +44,7 @@ const Header = () => {
 
 const Main = () => {
   const container = document.createElement('form');
-  container.className = 'container mx-auto px-6';
+  container.className = 'container mx-auto px-6 pb-6 flex-1 flex flex-col';
 
   container.appendChild(Label('new-post-title', 'Title'));
   container.appendChild(Input('new-post-title', 'Title'));

@@ -10,8 +10,6 @@ const title = document.querySelector('title');
 const headerOutlet = document.querySelector('#header-outlet');
 const mainOutlet = document.querySelector('#router-outlet');
 
-let init = true;
-
 const renderPage = (page: Page) => {
   if (mainOutlet) {
     mainOutlet.replaceChildren(page.main());
@@ -26,7 +24,7 @@ const renderPage = (page: Page) => {
   }
 };
 
-const onNavigate = (routes: Route[]) => {
+const onNavigate = (routes: Route[], initial?: boolean) => {
   if (mainOutlet) {
     const route = routes.find(
       (route) => route.pathname === window.location.pathname,
@@ -46,10 +44,10 @@ const onNavigate = (routes: Route[]) => {
       title.innerText = route.title ?? route.label;
     }
 
-    const navLinks = document.querySelectorAll('a.nav-link');
+    const navLinksA = document.querySelectorAll('a.nav-link');
 
-    if (navLinks) {
-      navLinks.forEach((element) => {
+    if (navLinksA) {
+      navLinksA.forEach((element) => {
         element.classList.remove('active');
       });
     }
@@ -62,10 +60,9 @@ const onNavigate = (routes: Route[]) => {
       navLink.classList.add('active');
     }
 
-    if (!init) {
-      onClick();
-    } else {
-      init = false;
+    if (navLinks && navbarToggler && !navLinks.classList.contains('none')) {
+      navLinks.classList.add('none');
+      navbarToggler.innerHTML = MenuIcon;
     }
   }
 };
@@ -114,5 +111,5 @@ export const setupRouter = (routes: Route[]) => {
 
   window.addEventListener('popstate', () => onNavigate(routes));
 
-  onNavigate(routes);
+  onNavigate(routes, true);
 };

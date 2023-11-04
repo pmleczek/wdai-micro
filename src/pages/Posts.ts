@@ -31,7 +31,7 @@ const Header = () => {
   input.setAttribute('placeholder', 'Search posts');
   input.className =
     'py-3 px-4 border border-dark-light rounded-2 text-3.5 placeholder:grey';
-  input.addEventListener('change', onChange);
+  input.addEventListener('input', onChange);
 
   container.appendChild(input);
 

@@ -17,6 +17,10 @@
   border-style: solid;
 }
 
+.border-grey {
+  border-color: var(--grey);
+}
+
 .border-dark-light {
   border-color: var(--bg-dark-light);
 }
@@ -98,6 +102,10 @@
   flex-direction: column;
 }
 
+.flex-1 {
+  flex: 1;
+}
+
 .flex-wrap {
   flex-wrap: wrap;
 }
@@ -151,6 +159,10 @@
 
 .h-120 {
   height: 28rem;
+}
+
+.min-h-100vh {
+  min-height: 100vh;
 }
 
 /* Margin */
@@ -218,6 +230,10 @@
 
 .pb-4 {
   padding-bottom: 1rem;
+}
+
+.pb-6 {
+  padding-bottom: 1.5rem;
 }
 
 /* Placeholder */
@@ -317,6 +333,10 @@
 
   .md\:border-b-0 {
     border-bottom-width: 0;
+  }
+
+  .md\:max-w-3\/5 {
+    max-width: 60%;
   }
 
   .container {

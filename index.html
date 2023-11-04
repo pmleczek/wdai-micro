@@ -13,7 +13,7 @@
     <title>Blog</title>
   </head>
   <body>
-    <div>
+    <div class="min-h-100vh flex flex-col">
       <header>
         <div class="border-b border-b-dark-light md:border-b-0">
           <div
@@ -31,7 +31,7 @@
         <div id="header-outlet"></div>
       </header>
 
-      <main id="router-outlet"></main>
+      <main class="flex-1 flex flex-col" id="router-outlet"></main>
     </div>
     <script type="module" src="/src/index.ts"></script>
   </body>

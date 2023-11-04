@@ -19,7 +19,7 @@ const PostRow = (post: Post) => {
     'hover:opacity flex items-center justify-between pointer bg-dark-light rounded-2 w-full py-4 px-4 md:px-6';
 
   const leftContainer = document.createElement('div');
-  leftContainer.className = 'flex items-center gap-4 md:gap-8';
+  leftContainer.className = 'flex flex-1 items-center gap-4 md:gap-8';
 
   if (post.thumbnail) {
     const img = document.createElement('img');
@@ -37,7 +37,7 @@ const PostRow = (post: Post) => {
   }
 
   const textContainer = document.createElement('div');
-  textContainer.className = 'flex flex-col gap-2';
+  textContainer.className = 'flex flex-1 flex-col gap-2';
 
   const title = document.createElement('h2');
   title.innerText = post.title;
@@ -46,7 +46,7 @@ const PostRow = (post: Post) => {
 
   const contentPreview = document.createElement('p');
   contentPreview.innerText = truncate(post.content);
-  contentPreview.className = 'text-3.5 text-grey';
+  contentPreview.className = 'text-3.5 text-grey md:max-w-3/5';
   textContainer.appendChild(contentPreview);
 
   leftContainer.appendChild(textContainer);
