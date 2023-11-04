@@ -1,3 +1,4 @@
+import { None } from '../components/icons';
 import { getPost } from '../data/posts';
 import { Page } from '../router/types';
 import { navigate } from '../router/utils';
@@ -20,17 +21,27 @@ const Main = () => {
     img.className = 'w-full rounded-2 fit-cover object-center h-120';
 
     container.appendChild(img);
+  } else {
+    const placeholder = document.createElement('div');
+    placeholder.className =
+      'w-full rounded-2 flex items-center justify-center bg-dark-light h-120';
+    placeholder.innerHTML = None;
+
+    container.appendChild(placeholder);
   }
 
   const header = document.createElement('div');
-  header.className = 'flex flex-col md:flex-row items-center justify-between py-4';
+  header.className =
+    'flex flex-col md:flex-row md:items-center justify-between py-4';
 
   const heading = document.createElement('h1');
   heading.innerText = post.title;
   heading.className = 'font-semibold text-6';
 
   const lastUpdate = document.createElement('p');
-  lastUpdate.innerText = new Date(post.updatedAt ?? post.createdAt).toLocaleDateString();
+  lastUpdate.innerText = new Date(
+    post.updatedAt ?? post.createdAt,
+  ).toLocaleDateString();
   lastUpdate.className = 'font-semibold text-grey';
 
   header.appendChild(heading);
@@ -40,7 +51,7 @@ const Main = () => {
 
   const content = document.createElement('p');
   content.innerText = post.content;
-  content.className = 'text-light-grey font-medium'
+  content.className = 'text-light-grey font-medium';
 
   container.appendChild(content);
 

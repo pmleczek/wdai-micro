@@ -7,6 +7,10 @@
   background-color: var(--bg-dark-light);
 }
 
+.bg-dark-lighter {
+  background-color: var(--bg-dark-lighter);
+}
+
 /* Border */
 .border {
   border-width: 1px;
@@ -98,6 +102,14 @@
   flex-wrap: wrap;
 }
 
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
 .items-center {
   align-items: center;
 }
@@ -129,6 +141,10 @@
 }
 
 /* Height */
+.h-24 {
+  height: 6rem;
+}
+
 .h-30 {
   height: 7.5rem;
 }
@@ -200,6 +216,10 @@
   padding-top: 1rem;
 }
 
+.pb-4 {
+  padding-bottom: 1rem;
+}
+
 /* Placeholder */
 .placeholder\:grey::placeholder {
   color: var(--grey);
@@ -227,6 +247,10 @@
 }
 
 /* Width */
+.w-24 {
+  width: 6rem;
+}
+
 .w-full {
   width: 100%;
 }
@@ -249,8 +273,21 @@
     gap: 2rem;
   }
 
+  .md\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
   .md\:p-0 {
     padding: 0;
+  }
+
+  .md\:pb-0 {
+    padding-bottom: 0;
+  }
+
+  .md\:items-center {
+    align-items: center;
   }
 
   .md\:order-2 {

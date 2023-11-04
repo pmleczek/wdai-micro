@@ -1,28 +1,35 @@
 import { PostsLocation, toBase64, uuid } from './utils';
 import { Post, PostInput } from './types';
 
-export const getPosts = (latest?: number): Post[] => {
+export const getPosts = (query: string, latest?: number): Post[] => {
   const jsonString = localStorage.getItem(PostsLocation);
 
   if (!jsonString) {
     return [];
   }
 
-  const array = JSON.parse(jsonString);
+  const array = JSON.parse(jsonString) ?? [];
+
+  const processedQuery = query.toLowerCase().trim();
+  const filtered = (array as Post[]).filter(
+    (item) =>
+      item.title.toLowerCase().includes(processedQuery) ||
+      item.content.toLowerCase().includes(processedQuery),
+  );
 
   if (latest) {
-    return array.slice(0, latest);
+    return filtered.slice(0, latest);
   }
 
-  return array;
+  return filtered;
 };
 
 export const getPost = (id: string): Post | undefined => {
-  return getPosts().find((post) => post.id === id);
+  return getPosts('').find((post) => post.id === id);
 };
 
 export const createPost = async (input: PostInput) => {
-  const posts = getPosts();
+  const posts = getPosts('');
 
   const thumbnail = input.image
     ? ((await toBase64(input.image)) as string)

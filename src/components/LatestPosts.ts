@@ -14,7 +14,7 @@ const LatestPosts = () => {
   postsContainer.className = 'grid space-rows-4 md:space-cols-4';
   container.appendChild(postsContainer);
 
-  const posts = getPosts(5);
+  const posts = getPosts('', 5);
 
   if (!posts.length) {
     const emptyLabel = document.createElement('span');

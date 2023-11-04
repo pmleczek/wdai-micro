@@ -10,6 +10,8 @@ const title = document.querySelector('title');
 const headerOutlet = document.querySelector('#header-outlet');
 const mainOutlet = document.querySelector('#router-outlet');
 
+let init = true;
+
 const renderPage = (page: Page) => {
   if (mainOutlet) {
     mainOutlet.replaceChildren(page.main());
@@ -60,7 +62,11 @@ const onNavigate = (routes: Route[]) => {
       navLink.classList.add('active');
     }
 
-    onClick();
+    if (!init) {
+      onClick();
+    } else {
+      init = false;
+    }
   }
 };
 

@@ -1,5 +1,6 @@
 import { Post } from '../data/types';
 import { navigate } from '../router/utils';
+import { None } from './icons';
 
 const SmallCard = (post: Post) => {
   const container = document.createElement('div');
@@ -18,11 +19,7 @@ const SmallCard = (post: Post) => {
     const placeholder = document.createElement('div');
     placeholder.className =
       'rounded-top-2 h-30 w-full flex items-center justify-center font-semibold bg-dark-light';
-
-    const label = document.createElement('p');
-    label.innerText = 'No thumbnail';
-
-    placeholder.appendChild(label);
+    placeholder.innerHTML = None;
 
     container.appendChild(placeholder);
   }
