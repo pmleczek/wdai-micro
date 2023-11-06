@@ -9,29 +9,29 @@ import Post from './pages/Post';
 setupRouter([
   {
     label: 'Home',
-    pathname: '/wdai-micro/',
+    pathname: '/',
     component: Home,
     title: 'Blog',
   },
   {
     label: 'Posts',
-    pathname: '/wdai-micro/posts',
+    pathname: '/posts',
     component: Posts,
   },
   {
     label: 'New post',
-    pathname: '/wdai-micro/new',
+    pathname: '/new',
     component: New,
     className: 'md:none',
   },
   {
     label: 'Settings',
-    pathname: '/wdai-micro/settings',
+    pathname: '/settings',
     component: Settings,
   },
   {
     label: 'Post',
-    pathname: '/wdai-micro/post',
+    pathname: '/post',
     component: Post,
     className: 'none',
   },

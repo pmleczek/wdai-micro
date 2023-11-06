@@ -11,7 +11,7 @@ const Main = () => {
   const post = getPost(id);
 
   if (!post) {
-    navigate('/wdai-micro/posts');
+    navigate('/posts');
     return container;
   }
 

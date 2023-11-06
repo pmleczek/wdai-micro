@@ -6,7 +6,7 @@ const SmallCard = (post: Post) => {
   const container = document.createElement('div');
   container.className = 'pointer hover:opacity h-full flex flex-col';
   container.addEventListener('click', () => {
-    navigate(`/wdai-micro/post?id=${post.id}`);
+    navigate(`/post?id=${post.id}`);
   });
 
   if (post.thumbnail) {

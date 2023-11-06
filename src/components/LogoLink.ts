@@ -2,12 +2,12 @@ import { navigate } from '../router/utils';
 
 const onClick = (event: MouseEvent) => {
   event.preventDefault();
-  navigate('/wdai-micro/');
+  navigate('/');
 };
 
 const LogoLink = () => {
   const anchor = document.createElement('a');
-  anchor.href = '/wdai-micro/';
+  anchor.href = '/';
   anchor.className = 'flex items-center';
   anchor.addEventListener('click', onClick);
 

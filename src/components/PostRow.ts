@@ -14,9 +14,7 @@ const truncate = (content: string) => {
 
 const PostRow = (post: Post) => {
   const container = document.createElement('div');
-  container.addEventListener('click', () =>
-    navigate(`/wdai-micro/post?id=${post.id}`),
-  );
+  container.addEventListener('click', () => navigate(`/post?id=${post.id}`));
   container.className =
     'hover:opacity gap-4 flex items-center justify-between pointer bg-dark-light rounded-2 w-full py-4 px-4 md:px-6';
 

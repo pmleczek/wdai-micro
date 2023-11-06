@@ -95,7 +95,7 @@ export const setupRouter = (routes: Route[]) => {
 
     navbar.appendChild(
       NavLink(
-        '/wdai-micro/new',
+        '/new',
         'New post',
         'none md:flex bg-primary !py-2 !px-4 font-medium rounded-2 disabled text-3.5 md:order-3',
       ),

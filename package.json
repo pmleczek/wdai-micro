@@ -2,14 +2,11 @@
   "name": "wdai-micro",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://pmleczek.github.io/wdai-micro/",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.2.0",
